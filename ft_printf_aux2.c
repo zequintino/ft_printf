@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_aux2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jquintin <jquintin@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 13:02:54 by jquintin          #+#    #+#             */
-/*   Updated: 2022/11/03 21:19:00 by jquintin         ###   ########.fr       */
+/*   Created: 2022/11/04 11:35:46 by jquintin          #+#    #+#             */
+/*   Updated: 2022/11/04 18:03:56 by jquintin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,12 @@
 
 int	check_valid_base(char *base);
 
-int	ft_putchar(int c)
-{
-	write(1, &c, sizeof(char));
-	return (1);
-}
-
-int	ft_puts(const char *s)
-{
-	int	len;
-
-	len = -1;
-	while (s[++len])
-		ft_putchar(s[len]);
-	return (len);
-}
-
 int	ft_putnbr_base(long long n, char *base)
 {
 	long long	base_len;
 	int			str_len;
-	char		tmp[50];
-	int			tmp_i;
 
 	str_len = 0;
-	tmp_i = 0;
 	base_len = ft_strlen(base);
 	if (!check_valid_base(base))
 		return (0);
@@ -46,24 +27,18 @@ int	ft_putnbr_base(long long n, char *base)
 	{
 		if (n < 0)
 		{
-			n *= -1;
-			str_len += ft_putchar('-');
+			str_len += ft_putc('-');
+			str_len += ft_putnbr_base(-n, base);
 		}
-		if (n >= base_len)
+		else if (n >= base_len)
 		{
-			while (n)
-			{
-				tmp[tmp_i] = base[n % base_len];
-				n /= base_len;
-				tmp_i++;
-			}
+			str_len += ft_putnbr_base(n / base_len, base);
+			str_len += ft_putnbr_base(n % base_len, base);
 		}
 		else
-			return (str_len += ft_putchar(base[n]));
+			str_len += ft_putc(base[n]);
 	}
-	while (tmp_i >= 0)
-		str_len += ft_putchar(tmp[--tmp_i]);
-	return (str_len - 1);
+	return (str_len);
 }
 
 int	check_valid_base(char *base)
@@ -90,3 +65,39 @@ int	check_valid_base(char *base)
 	}
 	return (1);
 }
+
+/* int	ft_putnbr_base(long long n, char *base)
+{
+	long long	base_len;
+	int			str_len;
+	char		tmp[50];
+	int			tmp_i;
+
+	str_len = 0;
+	tmp_i = 0;
+	base_len = ft_strlen(base);
+	if (!check_valid_base(base))
+		return (0);
+	else
+	{
+		if (n < 0)
+		{
+			n *= -1;
+			str_len += ft_putc('-');
+		}
+		if (n >= base_len)
+		{
+			while (n)
+			{
+				tmp[tmp_i] = base[n % base_len];
+				n /= base_len;
+				tmp_i++;
+			}
+		}
+		else
+			return (str_len += ft_putc(base[n]));
+	}
+	while (tmp_i > 0)
+		str_len += ft_putc(tmp[--tmp_i]);
+	return (str_len);
+} */

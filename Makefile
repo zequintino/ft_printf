@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_printf_utils.c
+SRC = ft_printf.c ft_printf_aux1.c ft_printf_aux2.c
 
 CC = cc
 
@@ -16,7 +16,7 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 test: re
-	cc libft/ft_strlen.c ft_printf.c ft_printf_utils.c ../../42_my_testers/jquintin-ft_printf-tester/ft_printf_test.c && ./a.out
+	cc libft/ft_strlen.c ft_printf.c ft_printf_aux1.c ft_printf_aux2.c ../../42_my_testers/jquintin-ft_printf-tester/ft_printf_test.c && ./a.out
 
 clean:
 	rm -f $(OBJ)

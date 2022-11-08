@@ -6,7 +6,7 @@
 /*   By: jquintin <jquintin@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:15:00 by jquintin          #+#    #+#             */
-/*   Updated: 2022/11/08 00:50:53 by jquintin         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:54:49 by jquintin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			str_len += ft_check_flags(str[i + 1], ptr);
+			str_len += ft_check_fmt(str[i + 1], ptr);
 			i++;
 		}
 	}

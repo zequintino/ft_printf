@@ -6,7 +6,7 @@
 /*   By: jquintin <jquintin@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 19:03:57 by jquintin          #+#    #+#             */
-/*   Updated: 2022/11/08 01:01:40 by jquintin         ###   ########.fr       */
+/*   Updated: 2022/11/08 12:27:18 by jquintin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_check_flags(const char c, va_list ap);
+int	ft_check_fmt(const char c, va_list ap);
 int	ft_check_s(const char *s);
 int	ft_check_p(long long n);
 int	ft_putptr(unsigned long long n, char *base);

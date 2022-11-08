@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_printf_helpers.c
+SRC = ft_printf.c ft_printf_utils.c
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
@@ -13,7 +13,6 @@ $(NAME): $(OBJ)
 	ar -rcs $@ $(OBJ)
 
 all: $(NAME)
-
 
 clean:
 	rm -f $(OBJ)

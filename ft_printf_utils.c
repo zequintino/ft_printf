@@ -6,13 +6,13 @@
 /*   By: jquintin <jquintin@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 13:02:54 by jquintin          #+#    #+#             */
-/*   Updated: 2022/11/08 01:09:20 by jquintin         ###   ########.fr       */
+/*   Updated: 2022/11/08 12:27:08 by jquintin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_flags(const char c, va_list ap)
+int	ft_check_fmt(const char c, va_list ap)
 {
 	if (c == '%')
 	{

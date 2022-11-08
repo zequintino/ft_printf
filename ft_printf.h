@@ -6,7 +6,7 @@
 /*   By: jquintin <jquintin@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 19:03:57 by jquintin          #+#    #+#             */
-/*   Updated: 2022/11/07 17:37:06 by jquintin         ###   ########.fr       */
+/*   Updated: 2022/11/08 01:01:40 by jquintin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,12 @@
 
 # include "libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
-# include <limits.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_putchr(int c);
-int	ft_putstr(const char *s);
-int	ft_conv_flags(const char c, va_list ptr);
-int	ft_check_ptr(long long n);
-int	ft_putnbr_ptr(unsigned long long n, char *base);
+int	ft_check_flags(const char c, va_list ap);
+int	ft_check_s(const char *s);
+int	ft_check_p(long long n);
+int	ft_putptr(unsigned long long n, char *base);
 int	ft_putnbr_base(long long n, char *base);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jquintin <jquintin@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:15:00 by jquintin          #+#    #+#             */
-/*   Updated: 2022/11/07 17:36:14 by jquintin         ###   ########.fr       */
+/*   Updated: 2022/11/08 00:50:53 by jquintin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ int	ft_printf(const char *str, ...)
 	while (str[++i])
 	{
 		if (str[i] != '%')
-			str_len += ft_putchr(str[i]);
+		{
+			ft_putchar_fd(str[i], 1);
+			str_len += 1;
+		}
 		else
 		{
-			str_len += ft_conv_flags(str[i + 1], ptr);
+			str_len += ft_check_flags(str[i + 1], ptr);
 			i++;
 		}
 	}

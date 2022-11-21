@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 
 SRC = ft_printf.c ft_printf_utils.c
+
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
